@@ -1,8 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/Theming/text_style.dart';
 
 class ImageAndText extends StatelessWidget {
@@ -20,7 +18,7 @@ class ImageAndText extends StatelessWidget {
             gradient: LinearGradient(
                 colors:[
                   Colors.white,
-                  Colors.white.withOpacity(0),
+                  Colors.white.withValues(),
                 ],
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,

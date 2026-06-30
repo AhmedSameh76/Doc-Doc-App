@@ -15,7 +15,6 @@ class ImageAndText extends StatelessWidget {
       children: [
         SvgPicture.asset("assets/svgs/opacity logo.svg"),
         Container(
-          child: Image.asset("assets/images/doc_image.png"),
           foregroundDecoration: BoxDecoration(
             gradient: LinearGradient(
                 colors:[
@@ -27,6 +26,7 @@ class ImageAndText extends StatelessWidget {
               stops: [0.14,0.4],
             ),
           ),
+          child: Image.asset("assets/images/doc_image.png"),
         ),
         Positioned(
           bottom: 30,

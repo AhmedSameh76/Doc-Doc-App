@@ -5,8 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:my_app1/core/Routing/routes.dart';
 import 'package:my_app1/core/Theming/text_style.dart';
 
-
-
 class DontHaveAccountText extends StatelessWidget {
   const DontHaveAccountText({super.key});
 
@@ -25,7 +23,7 @@ class DontHaveAccountText extends StatelessWidget {
             style: TextStyles.font13BlueSemiBold,
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.pushReplacementNamed(Routes.signUp);
+                context.goNamed("signUp");
               },
           ),
         ],

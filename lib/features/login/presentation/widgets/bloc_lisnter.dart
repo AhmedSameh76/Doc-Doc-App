@@ -7,8 +7,6 @@ import 'package:my_app1/core/Theming/text_style.dart';
 import 'package:my_app1/features/login/presentation/cubit/login_cubit.dart';
 import 'package:my_app1/features/login/presentation/cubit/login_state.dart';
 
-
-
 class LoginBlocListener extends StatelessWidget {
   const LoginBlocListener({super.key});
 
@@ -23,15 +21,12 @@ class LoginBlocListener extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) => const Center(
-                child: CircularProgressIndicator(
-                  color: ColorsManager.mainBlue,
-                ),
+                child: CircularProgressIndicator(color: ColorsManager.mainBlue),
               ),
             );
           },
           success: (loginResponse) {
-            context.pop();
-            
+            context.goNamed("home");
           },
           error: (error) {
             setupErrorState(context, error);
@@ -47,24 +42,14 @@ class LoginBlocListener extends StatelessWidget {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        icon: const Icon(
-          Icons.error,
-          color: Colors.red,
-          size: 32,
-        ),
-        content: Text(
-          error,
-          style: TextStyles.font15DarkBlueMedium,
-        ),
+        icon: const Icon(Icons.error, color: Colors.red, size: 32),
+        content: Text(error, style: TextStyles.font15DarkBlueMedium),
         actions: [
           TextButton(
             onPressed: () {
               context.pop();
             },
-            child: Text(
-              'Got it',
-              style: TextStyles.font14BlueSemiBold,
-            ),
+            child: Text('Got it', style: TextStyles.font14BlueSemiBold),
           ),
         ],
       ),

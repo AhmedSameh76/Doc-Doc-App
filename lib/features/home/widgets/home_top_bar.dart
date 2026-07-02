@@ -9,25 +9,30 @@ class HomeTopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min, 
           children: [
-                Text("Hi, Omar!",
-                style:TextStyles.font18DarkBlueBold
-                ),
-      Text("How Are You TOday?"
-      ,style:TextStyles.font12GrayRegular
-      ),
-      Spacer(),
-      CircleAvatar(
-        radius: 24,
-        backgroundColor: ColorsManager.moreLighterGray,
-        child: SvgPicture.asset("assets/svgs/noteifactions.svg"),
-      ),
-        ],)
-
-    ],
+            Text(
+              "Hi, Omar!",
+              style: TextStyles.font18DarkBlueBold,
+            ),
+            Text(
+              "How Are You TOday?",
+              style: TextStyles.font12GrayRegular,
+            ),
+          ],
+        ),
+        CircleAvatar(
+          radius: 24,
+          backgroundColor: ColorsManager.moreLighterGray,
+          child: SvgPicture.asset("assets/svgs/noteifactions.svg"),
+        ),
+        
+      ],
     );
   }
 }

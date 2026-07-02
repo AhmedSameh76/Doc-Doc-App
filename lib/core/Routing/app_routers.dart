@@ -11,7 +11,7 @@ import 'package:my_app1/features/sign_up/presentation/sign_up_screen.dart';
 
 class AppRouters {
   static final router = GoRouter(
-    initialLocation: Routes.onboarding,
+    initialLocation: Routes.home,
     routes: [
       GoRoute(
         path: Routes.onboarding,

@@ -17,7 +17,7 @@ class DocApp extends StatelessWidget {
         routerConfig: AppRouters.router,
         title: "Doc Doc",
         theme: ThemeData(
-          primaryColor: ColorManger.primaryBlue,
+          primaryColor: ColorsManager.mainBlue ,
           scaffoldBackgroundColor: Colors.white,
         ),
         debugShowCheckedModeBanner: false,

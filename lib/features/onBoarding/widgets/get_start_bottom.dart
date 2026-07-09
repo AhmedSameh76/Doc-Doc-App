@@ -21,11 +21,11 @@ class GetStartBottom extends StatelessWidget {
         },
         style: ButtonStyle(
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          backgroundColor: WidgetStateProperty.all(ColorManger.primaryBlue),
+          backgroundColor: WidgetStateProperty.all(ColorsManager.mainBlue),
         ),
         child: Text(
           "Get Started",
-          style: TextStyles.font16White600,
+          style: TextStyles.font16WhiteMedium,
         ),
       ),
     );

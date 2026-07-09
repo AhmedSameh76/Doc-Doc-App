@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app1/core/Routing/routes.dart';
 import 'package:my_app1/core/di/debendncy_injection.dart';
+import 'package:my_app1/features/home/presentation/cubit/home_cubit.dart';
 import 'package:my_app1/features/home/presentation/screens/home_screen.dart';
 import 'package:my_app1/features/login/presentation/cubit/login_cubit.dart';
 import 'package:my_app1/features/login/presentation/login_screen.dart';
@@ -36,7 +37,10 @@ class AppRouters {
       GoRoute(
         name: "home",
         path: Routes.home,
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<HomeCubit>()..getSplizations(),
+          child: const HomeScreen(),
+        ),
       ),
     ],
   );

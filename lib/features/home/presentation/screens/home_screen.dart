@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app1/core/helpers/spacing.dart';
+import 'package:my_app1/features/home/presentation/cubit/home_cubit.dart';
+import 'package:my_app1/features/home/presentation/cubit/home_state.dart';
+import 'package:my_app1/features/home/widgets/bloc_builder_home.dart';
 import 'package:my_app1/features/home/widgets/doctor_contanier.dart';
 import 'package:my_app1/features/home/widgets/doctor_speciality.dart';
-import 'package:my_app1/features/home/widgets/doctor_speciality_listview.dart';
 import 'package:my_app1/features/home/widgets/doctors_list_view.dart';
+import 'package:my_app1/features/home/widgets/doctors_spectiality_list_item.dart';
 import 'package:my_app1/features/home/widgets/home_top_bar.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -24,9 +29,7 @@ class HomeScreen extends StatelessWidget {
               verticalSpace(24),
               DoctorSpeciality(),
               verticalSpace(16),
-              DoctorSpecialityListview(),
-              verticalSpace(24),
-              DoctorsListView(),
+              BlocBuilderHome(),
             ],
           ),
         ),

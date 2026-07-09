@@ -21,7 +21,7 @@ class HomeTopBar extends StatelessWidget {
               style: TextStyles.font18DarkBlueBold,
             ),
             Text(
-              "How Are You TOday?",
+              "How Are You Today?",
               style: TextStyles.font12GrayRegular,
             ),
           ],

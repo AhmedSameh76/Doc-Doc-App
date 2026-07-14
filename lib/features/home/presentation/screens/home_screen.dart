@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app1/core/helpers/spacing.dart';
-import 'package:my_app1/features/home/presentation/cubit/home_cubit.dart';
-import 'package:my_app1/features/home/presentation/cubit/home_state.dart';
-import 'package:my_app1/features/home/widgets/bloc_builder_home.dart';
+import 'package:my_app1/features/home/widgets/doc_see_all.dart';
 import 'package:my_app1/features/home/widgets/doctor_contanier.dart';
-import 'package:my_app1/features/home/widgets/doctor_speciality.dart';
-import 'package:my_app1/features/home/widgets/doctors_list_view.dart';
-import 'package:my_app1/features/home/widgets/doctors_spectiality_list_item.dart';
+import 'package:my_app1/features/home/widgets/doctors/doc_bloc.dart';
 import 'package:my_app1/features/home/widgets/home_top_bar.dart';
-
+import 'package:my_app1/features/home/widgets/spe_bloc.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -19,17 +14,24 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.fromLTRB(20, 16, 20, 28),
           width: double.infinity,
-          decoration: BoxDecoration(),
+          margin: const EdgeInsets.fromLTRB(
+            20.0,
+            16.0,
+            20.0,
+            28.0,
+          ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              HomeTopBar(),
-              DoctorContanier(),
+              const HomeTopBar(),
+              const DoctorContanier(),
               verticalSpace(24),
-              DoctorSpeciality(),
-              verticalSpace(16),
-              BlocBuilderHome(),
+              const DoctorsSpecialitySeeAll(),
+              verticalSpace(18),
+              const SpecializationsBlocBuilder(),
+              verticalSpace(8),
+              const DoctorsBlocBuilder(),
             ],
           ),
         ),

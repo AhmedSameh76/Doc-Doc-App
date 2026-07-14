@@ -10,8 +10,13 @@ class HomeState with _$HomeState {
   const factory HomeState.initial() = _Initial;
   const factory HomeState.splizationLoading() = SplizationLoading;
   const factory HomeState.splizationSuccess(
-    SpecializationResponseModel specializationResponseModel,
+    List<SpecializationData?>?specilaizationData ,
   ) = SplizationSuccess;
   const factory HomeState.splizationError(ErrorHandler errorHandler) =
       SplizationError;
+
+  //doctors
+  const factory HomeState.doctorSuccess(List<Doctors?>?doctorsList) = DoctorSuccess;
+  const factory HomeState.doctorError(ErrorHandler errorHandler) = DoctorError;
+
 }

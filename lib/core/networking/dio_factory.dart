@@ -27,17 +27,17 @@ class DioFactory {
     }
   }
 
-  static void addDioHeaders() {
+  static void addDioHeaders()async {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL3JlZ2lzdGVyIiwiaWF0IjoxNzgzNjAzNDc1LCJleHAiOjE3ODM2ODk4NzUsIm5iZiI6MTc4MzYwMzQ3NSwianRpIjoiTWJTQmNPRmkweGJQbWdBYiIsInN1YiI6IjcyMzIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GwMtyq2MDEjuVXF0rZG2cAr4AWvTo7Q_5yCyi795878',
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
   }
 
   static void setTokenIntoHeaderAfterLogin(String token) {
     dio?.options.headers = {
-      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL3JlZ2lzdGVyIiwiaWF0IjoxNzgzNjAzNDc1LCJleHAiOjE3ODM2ODk4NzUsIm5iZiI6MTc4MzYwMzQ3NSwianRpIjoiTWJTQmNPRmkweGJQbWdBYiIsInN1YiI6IjcyMzIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.GwMtyq2MDEjuVXF0rZG2cAr4AWvTo7Q_5yCyi795878',
+      'Authorization': 'Bearer $token',
     };
   }
 

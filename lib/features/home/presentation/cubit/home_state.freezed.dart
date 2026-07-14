@@ -55,14 +55,16 @@ extension HomeStatePatterns on HomeState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( SplizationLoading value)?  splizationLoading,TResult Function( SplizationSuccess value)?  splizationSuccess,TResult Function( SplizationError value)?  splizationError,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( SplizationLoading value)?  splizationLoading,TResult Function( SplizationSuccess value)?  splizationSuccess,TResult Function( SplizationError value)?  splizationError,TResult Function( DoctorSuccess value)?  doctorSuccess,TResult Function( DoctorError value)?  doctorError,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case SplizationLoading() when splizationLoading != null:
 return splizationLoading(_that);case SplizationSuccess() when splizationSuccess != null:
 return splizationSuccess(_that);case SplizationError() when splizationError != null:
-return splizationError(_that);case _:
+return splizationError(_that);case DoctorSuccess() when doctorSuccess != null:
+return doctorSuccess(_that);case DoctorError() when doctorError != null:
+return doctorError(_that);case _:
   return orElse();
 
 }
@@ -80,14 +82,16 @@ return splizationError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( SplizationLoading value)  splizationLoading,required TResult Function( SplizationSuccess value)  splizationSuccess,required TResult Function( SplizationError value)  splizationError,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( SplizationLoading value)  splizationLoading,required TResult Function( SplizationSuccess value)  splizationSuccess,required TResult Function( SplizationError value)  splizationError,required TResult Function( DoctorSuccess value)  doctorSuccess,required TResult Function( DoctorError value)  doctorError,}){
 final _that = this;
 switch (_that) {
 case _Initial():
 return initial(_that);case SplizationLoading():
 return splizationLoading(_that);case SplizationSuccess():
 return splizationSuccess(_that);case SplizationError():
-return splizationError(_that);case _:
+return splizationError(_that);case DoctorSuccess():
+return doctorSuccess(_that);case DoctorError():
+return doctorError(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -104,14 +108,16 @@ return splizationError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( SplizationLoading value)?  splizationLoading,TResult? Function( SplizationSuccess value)?  splizationSuccess,TResult? Function( SplizationError value)?  splizationError,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( SplizationLoading value)?  splizationLoading,TResult? Function( SplizationSuccess value)?  splizationSuccess,TResult? Function( SplizationError value)?  splizationError,TResult? Function( DoctorSuccess value)?  doctorSuccess,TResult? Function( DoctorError value)?  doctorError,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial(_that);case SplizationLoading() when splizationLoading != null:
 return splizationLoading(_that);case SplizationSuccess() when splizationSuccess != null:
 return splizationSuccess(_that);case SplizationError() when splizationError != null:
-return splizationError(_that);case _:
+return splizationError(_that);case DoctorSuccess() when doctorSuccess != null:
+return doctorSuccess(_that);case DoctorError() when doctorError != null:
+return doctorError(_that);case _:
   return null;
 
 }
@@ -128,13 +134,15 @@ return splizationError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  splizationLoading,TResult Function( SpecializationResponseModel specializationResponseModel)?  splizationSuccess,TResult Function( ErrorHandler errorHandler)?  splizationError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  splizationLoading,TResult Function( List<SpecializationData?>? specilaizationData)?  splizationSuccess,TResult Function( ErrorHandler errorHandler)?  splizationError,TResult Function( List<Doctors?>? doctorsList)?  doctorSuccess,TResult Function( ErrorHandler errorHandler)?  doctorError,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case SplizationLoading() when splizationLoading != null:
 return splizationLoading();case SplizationSuccess() when splizationSuccess != null:
-return splizationSuccess(_that.specializationResponseModel);case SplizationError() when splizationError != null:
-return splizationError(_that.errorHandler);case _:
+return splizationSuccess(_that.specilaizationData);case SplizationError() when splizationError != null:
+return splizationError(_that.errorHandler);case DoctorSuccess() when doctorSuccess != null:
+return doctorSuccess(_that.doctorsList);case DoctorError() when doctorError != null:
+return doctorError(_that.errorHandler);case _:
   return orElse();
 
 }
@@ -152,13 +160,15 @@ return splizationError(_that.errorHandler);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  splizationLoading,required TResult Function( SpecializationResponseModel specializationResponseModel)  splizationSuccess,required TResult Function( ErrorHandler errorHandler)  splizationError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  splizationLoading,required TResult Function( List<SpecializationData?>? specilaizationData)  splizationSuccess,required TResult Function( ErrorHandler errorHandler)  splizationError,required TResult Function( List<Doctors?>? doctorsList)  doctorSuccess,required TResult Function( ErrorHandler errorHandler)  doctorError,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case SplizationLoading():
 return splizationLoading();case SplizationSuccess():
-return splizationSuccess(_that.specializationResponseModel);case SplizationError():
-return splizationError(_that.errorHandler);case _:
+return splizationSuccess(_that.specilaizationData);case SplizationError():
+return splizationError(_that.errorHandler);case DoctorSuccess():
+return doctorSuccess(_that.doctorsList);case DoctorError():
+return doctorError(_that.errorHandler);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -175,13 +185,15 @@ return splizationError(_that.errorHandler);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  splizationLoading,TResult? Function( SpecializationResponseModel specializationResponseModel)?  splizationSuccess,TResult? Function( ErrorHandler errorHandler)?  splizationError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  splizationLoading,TResult? Function( List<SpecializationData?>? specilaizationData)?  splizationSuccess,TResult? Function( ErrorHandler errorHandler)?  splizationError,TResult? Function( List<Doctors?>? doctorsList)?  doctorSuccess,TResult? Function( ErrorHandler errorHandler)?  doctorError,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case SplizationLoading() when splizationLoading != null:
 return splizationLoading();case SplizationSuccess() when splizationSuccess != null:
-return splizationSuccess(_that.specializationResponseModel);case SplizationError() when splizationError != null:
-return splizationError(_that.errorHandler);case _:
+return splizationSuccess(_that.specilaizationData);case SplizationError() when splizationError != null:
+return splizationError(_that.errorHandler);case DoctorSuccess() when doctorSuccess != null:
+return doctorSuccess(_that.doctorsList);case DoctorError() when doctorError != null:
+return doctorError(_that.errorHandler);case _:
   return null;
 
 }
@@ -257,10 +269,18 @@ String toString() {
 
 
 class SplizationSuccess implements HomeState {
-  const SplizationSuccess(this.specializationResponseModel);
+  const SplizationSuccess(final  List<SpecializationData?>? specilaizationData): _specilaizationData = specilaizationData;
   
 
- final  SpecializationResponseModel specializationResponseModel;
+ final  List<SpecializationData?>? _specilaizationData;
+ List<SpecializationData?>? get specilaizationData {
+  final value = _specilaizationData;
+  if (value == null) return null;
+  if (_specilaizationData is EqualUnmodifiableListView) return _specilaizationData;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
@@ -272,16 +292,16 @@ $SplizationSuccessCopyWith<SplizationSuccess> get copyWith => _$SplizationSucces
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SplizationSuccess&&(identical(other.specializationResponseModel, specializationResponseModel) || other.specializationResponseModel == specializationResponseModel));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SplizationSuccess&&const DeepCollectionEquality().equals(other._specilaizationData, _specilaizationData));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,specializationResponseModel);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_specilaizationData));
 
 @override
 String toString() {
-  return 'HomeState.splizationSuccess(specializationResponseModel: $specializationResponseModel)';
+  return 'HomeState.splizationSuccess(specilaizationData: $specilaizationData)';
 }
 
 
@@ -292,7 +312,7 @@ abstract mixin class $SplizationSuccessCopyWith<$Res> implements $HomeStateCopyW
   factory $SplizationSuccessCopyWith(SplizationSuccess value, $Res Function(SplizationSuccess) _then) = _$SplizationSuccessCopyWithImpl;
 @useResult
 $Res call({
- SpecializationResponseModel specializationResponseModel
+ List<SpecializationData?>? specilaizationData
 });
 
 
@@ -309,10 +329,10 @@ class _$SplizationSuccessCopyWithImpl<$Res>
 
 /// Create a copy of HomeState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? specializationResponseModel = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? specilaizationData = freezed,}) {
   return _then(SplizationSuccess(
-null == specializationResponseModel ? _self.specializationResponseModel : specializationResponseModel // ignore: cast_nullable_to_non_nullable
-as SpecializationResponseModel,
+freezed == specilaizationData ? _self._specilaizationData : specilaizationData // ignore: cast_nullable_to_non_nullable
+as List<SpecializationData?>?,
   ));
 }
 
@@ -377,6 +397,146 @@ class _$SplizationErrorCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? errorHandler = null,}) {
   return _then(SplizationError(
+null == errorHandler ? _self.errorHandler : errorHandler // ignore: cast_nullable_to_non_nullable
+as ErrorHandler,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class DoctorSuccess implements HomeState {
+  const DoctorSuccess(final  List<Doctors?>? doctorsList): _doctorsList = doctorsList;
+  
+
+ final  List<Doctors?>? _doctorsList;
+ List<Doctors?>? get doctorsList {
+  final value = _doctorsList;
+  if (value == null) return null;
+  if (_doctorsList is EqualUnmodifiableListView) return _doctorsList;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(value);
+}
+
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DoctorSuccessCopyWith<DoctorSuccess> get copyWith => _$DoctorSuccessCopyWithImpl<DoctorSuccess>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DoctorSuccess&&const DeepCollectionEquality().equals(other._doctorsList, _doctorsList));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_doctorsList));
+
+@override
+String toString() {
+  return 'HomeState.doctorSuccess(doctorsList: $doctorsList)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DoctorSuccessCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory $DoctorSuccessCopyWith(DoctorSuccess value, $Res Function(DoctorSuccess) _then) = _$DoctorSuccessCopyWithImpl;
+@useResult
+$Res call({
+ List<Doctors?>? doctorsList
+});
+
+
+
+
+}
+/// @nodoc
+class _$DoctorSuccessCopyWithImpl<$Res>
+    implements $DoctorSuccessCopyWith<$Res> {
+  _$DoctorSuccessCopyWithImpl(this._self, this._then);
+
+  final DoctorSuccess _self;
+  final $Res Function(DoctorSuccess) _then;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? doctorsList = freezed,}) {
+  return _then(DoctorSuccess(
+freezed == doctorsList ? _self._doctorsList : doctorsList // ignore: cast_nullable_to_non_nullable
+as List<Doctors?>?,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class DoctorError implements HomeState {
+  const DoctorError(this.errorHandler);
+  
+
+ final  ErrorHandler errorHandler;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DoctorErrorCopyWith<DoctorError> get copyWith => _$DoctorErrorCopyWithImpl<DoctorError>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DoctorError&&(identical(other.errorHandler, errorHandler) || other.errorHandler == errorHandler));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,errorHandler);
+
+@override
+String toString() {
+  return 'HomeState.doctorError(errorHandler: $errorHandler)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DoctorErrorCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
+  factory $DoctorErrorCopyWith(DoctorError value, $Res Function(DoctorError) _then) = _$DoctorErrorCopyWithImpl;
+@useResult
+$Res call({
+ ErrorHandler errorHandler
+});
+
+
+
+
+}
+/// @nodoc
+class _$DoctorErrorCopyWithImpl<$Res>
+    implements $DoctorErrorCopyWith<$Res> {
+  _$DoctorErrorCopyWithImpl(this._self, this._then);
+
+  final DoctorError _self;
+  final $Res Function(DoctorError) _then;
+
+/// Create a copy of HomeState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? errorHandler = null,}) {
+  return _then(DoctorError(
 null == errorHandler ? _self.errorHandler : errorHandler // ignore: cast_nullable_to_non_nullable
 as ErrorHandler,
   ));

@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:firebase_core/firebase_core.dart'; // 1. تأكد من وجود الـ import ده
 import 'package:my_app1/core/di/debendncy_injection.dart';
+import 'package:my_app1/core/helpers/const.dart';
+import 'package:my_app1/core/helpers/extentaions.dart';
+import 'package:my_app1/core/shared_prefrance/shared_pref_helper.dart';
 import 'package:my_app1/doc_app.dart';
-// import 'firebase_options.dart'; // 2. اعمل import لملف الـ firebase_options بتاعك هنا
+
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
-  
-  await Firebase.initializeApp(
-
-  );
- 
   setupGetIt();
-
   await ScreenUtil.ensureScreenSize();
-  
-  runApp(const DocApp());
+  await checkIfLoggedInUser();
+  runApp(DocApp(
+  ));
+}
+
+checkIfLoggedInUser() async {
+  String? userToken =
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  if (!userToken.isNullOrEmpty()) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
+  }
 }

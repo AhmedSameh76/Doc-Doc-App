@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-
 import 'package:my_app1/core/Theming/color.dart';
 import 'package:my_app1/core/Theming/text_style.dart';
-import 'package:my_app1/core/helpers/extentaions.dart';
 import 'package:my_app1/features/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:my_app1/features/sign_up/presentation/cubit/sign_up_state.dart';
-
 
 class SignupBlocListener extends StatelessWidget {
   const SignupBlocListener({super.key});

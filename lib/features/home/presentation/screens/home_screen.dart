@@ -5,6 +5,7 @@ import 'package:my_app1/features/home/widgets/doctor_contanier.dart';
 import 'package:my_app1/features/home/widgets/doctors/doc_bloc.dart';
 import 'package:my_app1/features/home/widgets/home_top_bar.dart';
 import 'package:my_app1/features/home/widgets/spe_bloc.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -15,12 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Container(
           width: double.infinity,
-          margin: const EdgeInsets.fromLTRB(
-            20.0,
-            16.0,
-            20.0,
-            28.0,
-          ),
+          margin: const EdgeInsets.fromLTRB(20.0, 16.0, 20.0, 28.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

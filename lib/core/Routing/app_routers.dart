@@ -61,33 +61,31 @@ class AppRouters {
           );
         },
       ),
-     GoRoute(
-  name: "speciality",
-  path: Routes.speciality,
-  builder: (context, state) {
-    if (state.extra is! HomeCubit) {
-      return const Scaffold(
-        body: Center(
-          child: Text("Error, try again"),
-        ),
-      );
-    }
+      GoRoute(
+        name: "speciality",
+        path: Routes.speciality,
+        builder: (context, state) {
+          if (state.extra is! HomeCubit) {
+            return const Scaffold(
+              body: Center(child: Text("Error, try again")),
+            );
+          }
 
-    final homeCubit = state.extra as HomeCubit;
+          final homeCubit = state.extra as HomeCubit;
 
-    return BlocProvider.value(
-      value: homeCubit,
-      child: const DoctorSpeGride(),
-    );
-  },
-),
-GoRoute(
-  path: Routes.secoundSpeciality,
-  builder: (context, state) {
-    final specializationData = state.extra as SpecializationData;
-    return DoctorsBySpecialityScreen(specializationData);
-  },
-),
+          return BlocProvider.value(
+            value: homeCubit,
+            child: const DoctorSpeGride(),
+          );
+        },
+      ),
+      GoRoute(
+        path: Routes.secoundSpeciality,
+        builder: (context, state) {
+          final specializationData = state.extra as SpecializationData;
+          return DoctorsBySpecialityScreen(specializationData);
+        },
+      ),
     ],
   );
 }

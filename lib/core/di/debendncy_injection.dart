@@ -34,7 +34,11 @@ Future<void> setupGetIt() async {
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 
   //details
-  getIt.registerLazySingleton<DoctorDetailsApiService>(() => DoctorDetailsApiService(dio));
-  getIt.registerLazySingleton<DoctorDetailsRepo>(() => DoctorDetailsRepo(getIt()));
+  getIt.registerLazySingleton<DoctorDetailsApiService>(
+    () => DoctorDetailsApiService(dio),
+  );
+  getIt.registerLazySingleton<DoctorDetailsRepo>(
+    () => DoctorDetailsRepo(getIt()),
+  );
   getIt.registerFactory<DoctorDetailsCubit>(() => DoctorDetailsCubit(getIt()));
 }

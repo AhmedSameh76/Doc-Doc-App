@@ -14,16 +14,10 @@ class HomeTopBar extends StatelessWidget {
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min, 
+          mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              "Hi, Ahmed!",
-              style: TextStyles.font18DarkBlueBold,
-            ),
-            Text(
-              "How Are You Today?",
-              style: TextStyles.font12GrayRegular,
-            ),
+            Text("Hi, Ahmed!", style: TextStyles.font18DarkBlueBold),
+            Text("How Are You Today?", style: TextStyles.font12GrayRegular),
           ],
         ),
         CircleAvatar(
@@ -31,7 +25,6 @@ class HomeTopBar extends StatelessWidget {
           backgroundColor: ColorsManager.moreLighterGray,
           child: SvgPicture.asset("assets/svgs/noteifactions.svg"),
         ),
-        
       ],
     );
   }

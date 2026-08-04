@@ -152,6 +152,7 @@ ApiErrorModel _handleError(DioException error) {
   switch (error.type) {
     case DioExceptionType.connectionTimeout:
       return DataSource.connectTimeout.getFailure();
+      case DioExceptionType.transformTimeout:
 
     case DioExceptionType.sendTimeout:
       return DataSource.sendTimeout.getFailure();

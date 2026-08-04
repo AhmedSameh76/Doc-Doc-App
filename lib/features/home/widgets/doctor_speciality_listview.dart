@@ -7,12 +7,10 @@ import 'package:my_app1/features/home/widgets/spe_list_view_item.dart';
 
 class SpecialityListView extends StatefulWidget {
   final List<SpecializationData?> specializationDataList;
-  const SpecialityListView(
-      {super.key, required this.specializationDataList});
+  const SpecialityListView({super.key, required this.specializationDataList});
 
   @override
-  State<SpecialityListView> createState() =>
-      _SpecialityListViewState();
+  State<SpecialityListView> createState() => _SpecialityListViewState();
 }
 
 class _SpecialityListViewState extends State<SpecialityListView> {
@@ -32,8 +30,8 @@ class _SpecialityListViewState extends State<SpecialityListView> {
                 selectedSpecializationIndex = index;
               });
               context.read<HomeCubit>().getDoctorsList(
-                    specializationId: widget.specializationDataList[index]?.id,
-                  );
+                specializationId: widget.specializationDataList[index]?.id,
+              );
             },
             child: SpecialityListViewItem(
               specializationsData: widget.specializationDataList[index],

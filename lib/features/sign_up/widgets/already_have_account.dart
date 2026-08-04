@@ -1,9 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-
+import 'package:go_router/go_router.dart';
+import 'package:my_app1/core/Routing/routes.dart';
 import 'package:my_app1/core/Theming/text_style.dart';
-import 'package:my_app1/core/helpers/extentaions.dart';
-
 
 class AlreadyHaveAccountText extends StatelessWidget {
   const AlreadyHaveAccountText({super.key});
@@ -23,7 +22,7 @@ class AlreadyHaveAccountText extends StatelessWidget {
             style: TextStyles.font13BlueSemiBold,
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.pushReplacementNamed("login");
+                context.pushReplacementNamed(Routes.login);
               },
           ),
         ],

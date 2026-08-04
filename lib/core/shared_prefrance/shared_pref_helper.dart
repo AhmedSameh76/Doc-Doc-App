@@ -77,15 +77,20 @@ class SharedPrefHelper {
 
   /// Saves a [value] with a [key] in the FlutterSecureStorage.
   static setSecuredString(String key, String value) async {
-    const flutterSecureStorage = FlutterSecureStorage(aOptions: _androidOptions);
+    const flutterSecureStorage = FlutterSecureStorage(
+      aOptions: _androidOptions,
+    );
     debugPrint(
-        "FlutterSecureStorage : setSecuredString with key : $key and value : $value");
+      "FlutterSecureStorage : setSecuredString with key : $key and value : $value",
+    );
     await flutterSecureStorage.write(key: key, value: value);
   }
 
   /// Gets an String value from FlutterSecureStorage with given [key].
   static getSecuredString(String key) async {
-    const flutterSecureStorage = FlutterSecureStorage(aOptions: _androidOptions);
+    const flutterSecureStorage = FlutterSecureStorage(
+      aOptions: _androidOptions,
+    );
     debugPrint('FlutterSecureStorage : getSecuredString with key :');
     return await flutterSecureStorage.read(key: key) ?? '';
   }
@@ -93,7 +98,9 @@ class SharedPrefHelper {
   /// Removes all keys and values in the FlutterSecureStorage
   static clearAllSecuredData() async {
     debugPrint('FlutterSecureStorage : all data has been cleared');
-    const flutterSecureStorage = FlutterSecureStorage(aOptions: _androidOptions);
+    const flutterSecureStorage = FlutterSecureStorage(
+      aOptions: _androidOptions,
+    );
     await flutterSecureStorage.deleteAll();
   }
 }

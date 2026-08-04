@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:my_app1/core/Routing/app_routers.dart';
-import 'package:my_app1/core/Routing/routes.dart'; // مسارات الـ GoRouter
+import 'package:my_app1/core/Routing/routes.dart';
 import 'package:my_app1/core/helpers/const.dart';
 import 'package:my_app1/core/shared_prefrance/shared_pref_helper.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
@@ -18,9 +18,8 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut
-        ..options.headers = {
-          'Accept': 'application/json',
-        };
+        ..options.headers = {'Accept': 'application/json'};
+
       addDioInterceptor();
       return dio!;
     } else {
@@ -36,12 +35,13 @@ class DioFactory {
     dio?.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          final String token =
-              await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+          final String token = await SharedPrefHelper.getSecuredString(
+            SharedPrefKeys.userToken,
+          );
           options.headers['Authorization'] = 'Bearer $token';
           handler.next(options);
         },
-       
+
         onError: (DioException error, handler) async {
           if (error.response?.statusCode == 401) {
             await SharedPrefHelper.clearAllSecuredData();

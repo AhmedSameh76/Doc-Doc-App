@@ -4,6 +4,8 @@ class ApiConstants {
   static const String signup = "auth/register";
   static const String specialization = "specialization/index";
   static const String doctorDetails = "doctor/show/";
+  static const String getAppointment = "appointment/index";
+  static const String postAppointment = "appointment/store";
 }
 
 class ApiErrors {

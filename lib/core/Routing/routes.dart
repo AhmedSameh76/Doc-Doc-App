@@ -6,4 +6,10 @@ class Routes {
   static const String details = "/DoctorDetailsScreen";
   static const String speciality = "/DoctorSpeGride";
   static const String secoundSpeciality = "/DoctorsBySpecialityScreen";
+  static const String appintmentScreen = "/AppointmentScreens";
+  static const String availbaleGride = "/AvailableTimesGrid";
+  static const String main = "/MainScreen";
+  static const String search = '/SearchScreen';
+  static const String profile = '/ProfileScreen';
+
 }

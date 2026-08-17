@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:my_app1/core/Routing/routes.dart';
+import 'package:my_app1/core/di/debendncy_injection.dart';
+import 'package:my_app1/features/appoinments/presentation/cubit/appoinments_cubit.dart';
+import 'package:my_app1/features/appoinments/presentation/screens/appointment_screens.dart';
 import 'package:my_app1/features/doctor_details/presentation/cubit/doctor_details_cubit.dart';
 import 'package:my_app1/features/doctor_details/presentation/cubit/doctor_details_state.dart';
 import 'package:my_app1/features/doctor_details/presentation/pages/doctor_location.dart';
@@ -37,7 +40,7 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
             color: Colors.black,
           ),
           onPressed: () {
-            context.push(Routes.home);
+            context.pop();
           },
         ),
         title: BlocBuilder<DoctorDetailsCubit, DoctorDetailsState>(
@@ -105,7 +108,19 @@ class _DoctorDetailsScreenState extends State<DoctorDetailsScreen> {
                             borderRadius: BorderRadius.circular(16.r),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => BlocProvider<AppoinmentsCubit>(
+                                create: (context) => getIt<AppoinmentsCubit>(),
+                                child: AppointmentScreens(
+                                  doctorData: data.data!,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Make An Appointment',
                           style: TextStyle(
